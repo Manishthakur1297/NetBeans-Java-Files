@@ -1,0 +1,125 @@
+public static void main(String[] args) throws IOException {
+        Scanner in = new Scanner(System.in);
+        final String fileName = System.getenv("OUTPUT_PATH");
+        BufferedWriter bw = null;
+        if (fileName != null) {
+            bw = new BufferedWriter(new FileWriter(fileName));
+        }
+        else {
+            bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        String res;
+        String p;
+        try {
+            p = in.nextLine();
+        } catch (Exception e) {
+            p = null;
+        }
+
+        int info_size = 0;
+        info_size = Integer.parseInt(in.nextLine().trim());
+
+        int[] info = new int[info_size];
+        for(int i = 0; i < info_size; i++) {
+            int info_item;
+            info_item = Integer.parseInt(in.nextLine().trim());
+            info[i] = info_item;
+        }
+
+        int vowels_size = 0;
+        vowels_size = Integer.parseInt(in.nextLine().trim());
+
+        long[] vowels = new long[vowels_size];
+        for(int i = 0; i < vowels_size; i++) {
+            long vowels_item;
+            vowels_item = Long.parseLong(in.nextLine().trim());
+            vowels[i] = vowels_item;
+        }
+
+        res = solve(p, info, vowels);
+        bw.write(res);
+        bw.newLine();
+
+        bw.close();
+    }
+}
+
+public Solution{
+
+    /*
+     * Complete the function below.
+     */
+    static String solve(String p, int[] info, long[] vowels) {
+        
+        StringBuilder str = new Stringuilder("");
+        int len =p.length();
+            for(int i =0;i<info.length();i++)
+            {
+                int pos = Math.abs(info[i]);
+                    if(info[i]>=0)
+                    {
+                        str.append(p,0,pos);
+                    }
+                else
+                {
+                    str.append(p,pos,len-1);
+                }
+            }
+        
+        String newstr = str.toString();
+        
+        int strLen = newstr.length();
+        StringBuffer vowel = new StringBuffer("");
+            
+        for(int i=0;i<strLen;i++)
+        {
+            if(checkVovel(newstr.charAt(i)))
+            {
+                vovel.append(newstr.charAt(i).toString());
+            }
+        }
+        
+        String v = vovel.toString();
+        StringBuilder final = new StringBuilder("hello");
+        int newL = v.length();
+        for(int i=0;i<newL;i++)
+        {
+            int num = Integer.parseInt(v.charAt(i));
+            int n = num%newL;
+            final.append(v.charAt(n));
+        }
+        
+            System.out.print(final);
+
+        
+    }
+
+static Boolean checkVovel(char c)
+{
+    if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u')
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
+        int vowels_size = 0;
+        vowels_size = Integer.parseInt(in.nextLine().trim());
+
+        long[] vowels = new long[vowels_size];
+        for(int i = 0; i < vowels_size; i++) {
+            long vowels_item;
+            vowels_item = Long.parseLong(in.nextLine().trim());
+            vowels[i] = vowels_item;
+        }
+
+        res = solve(p, info, vowels);
+        bw.write(res);
+        bw.newLine();
+
+        bw.close();
+    }
+}
